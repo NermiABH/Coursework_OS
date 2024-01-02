@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  server1:
+    build: ./
+    environment:
+      - HOST_SERVER_3=server3
+    depends_on:
+      - server3
+    command: ./server1/server1
+    ports:
+      - "8081:8081"
+
+  server2:
+    build: ./
+    command: ./server2/server2
+    environment:
+      - HOST_SERVER_3=server3
+    depends_on:
+      - server3
+    ports:
+      - "8082:8082"
+
+  server3:
+    build: ./
+    command: ./server3/server3
+    ports:
+      - "8083:8083"
+
+  client:
+    build: ./
+    command: ./client/client
+    environment:
+      - HOST_SERVER_1=server1
+      - HOST_SERVER_2=server2
+
+    depends_on:
+      - server3
+      - server1
+      - server2
+    ports:
+      - "8080:8080"

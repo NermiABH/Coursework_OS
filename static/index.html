@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel='stylesheet' href='/static/style.css'>
+</head>
+
+<body>
+	<div class="search__wrapper">
+		<form class="search__header">
+			<form method="post">
+				<a class="pressing" href="/v1/server1">V1 Server 1</a>
+				<a class="pressing" href="/v1/server2">V1 Server 2</a>
+				<a class="pressing" href="/v2/server1">V2 Server 1</a>
+				<a class="pressing" href="/v2/server2">V2 Server 2</a>
+			</form>
+		</form>
+		<div class="search__list" id="json_print">
+			<p class="search__ul">{{ .Order}}</p>
+		</div>
+	</div>
+</body>
+</html>
